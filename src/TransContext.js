@@ -2,9 +2,9 @@ import React,{ createContext, useReducer } from 'react';
 import TransReducer from './TransReducer';
 
 let transactions = [
-    {id:0 ,amount:0, category:'cash'},
-    {id:1 ,amount:-440, category:'cash'},
-    {id:2 ,amount:441, category:'cash'}
+    // {id:0 ,amount:0, category:'cash'},
+    // {id:1 ,amount:-440, category:'cash'},
+    // {id:2 ,amount:441, category:'cash'}
 ];
 
 export const TransContext = createContext(transactions);
@@ -16,6 +16,7 @@ export const TransactionProvider = ({children})=>{
         dispatch({
             type: "PLUS",
             payload : {
+                id : Math.floor(Math.random() * 100000000),
                 amount: transaction.amount,
                 category:transaction.category
             }
@@ -28,7 +29,6 @@ export const TransactionProvider = ({children})=>{
             payload: id,
         });
     }
-
 
     return(
         <TransContext.Provider value={{
