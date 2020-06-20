@@ -23,11 +23,21 @@ jobs:
     - uses: actions/checkout@v2
 
     # Runs a single command using the runners shell
-    - name: Install NodeJS
-      uses : actions/setup-node@v2-beta
-      with: 
-        node-version: 12
-    - name: Install Surge
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v1.4.2
+      with:
+        version: 12
+        
+    - name: GitHub Action for Yarn
+      uses: Borales/actions-yarn@v2.1.0
+      with:
+        cmd: install
+        
+    - name: Building using Yarn
+      run: yarn build
+
+    - name: Installing Surge
       run: npm install -g surge
-    - name: Run Surge
-      run: surge ./ expense_tracker_project1mids.surge.sh --token ${{secrets.TOKEN}}
+      
+    - name: deploying on surge
+      run: surge ./build expense_tracker_project1mids.surge.sh --token ${{secrets.TOKEN}}
