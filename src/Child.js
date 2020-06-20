@@ -38,12 +38,18 @@ export const Child = () => {
 
     return (
         <div className="container">
-            <h1>Expense Tracker 💰</h1><hr />
+        
+            <h1>Expense Tracker
+                <span role="img" aria-label="Money Bag">💰</span></h1><hr />
             <h2>Your Balance: ${getIncome()+getExpense()} </h2>
 
             <div className="display">
-                <h2 className="plus">🤑Income <br /> ${getIncome()}  </h2>
-                <h2 className="minus">❌Expense <br /> ${getExpense()} </h2>
+                <h2 className="plus">
+                <span role="img" aria-label="Money-Mouth Face">🤑</span>
+                Income <br /> ${getIncome()}  </h2>
+                <h2 className="minus">
+                <span role="img" aria-label="Cross Mark">❌</span>
+                Expense <br /> ${getExpense()} </h2>
             </div>
 
             <h3>History</h3>
@@ -75,7 +81,9 @@ export const Child = () => {
                 <button className="btn">Add transaction</button>
 
             </form>
-            <h3>Made by Midha ❤️</h3>
+            <h3><a href="https://github.com/MidhaTahir" target="blank" >Made by Midha</a>
+            <span role="img" aria-label="Heart">❤️</span>
+            </h3>
         </div>
 
     )
